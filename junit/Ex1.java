@@ -8,27 +8,36 @@ class Ex1{
 	 * 	n > 0 => "その値は正です"
 	 * 	n <= 0 => "その値は０か負です"
 	 */
-	public String ex1_0(int n){
-
-		return "dummy";
+	public String ex1_0(int n) {
+		if (n > 0) {
+			return "その値は正です";
+		}
+		else {
+			return "dummy";
+		}
 
 	}
 
 	public int ex1_1(int n){
-
-		return -1;
+		if (n > 0) {
+			return 1;
+		} if (n < 0) {
+			return -1;
+		}else {
+			return 0;
+		}
 
 	}
 
 	public String ex1_2(int a, int b){
-
-		return "dummy";
-	}
+		if (a % b == 0)
+				return( a + "は" + b + "の約数です");
+		else
+			return (a + "は" + b + "の約数ではありません");
+		}
 
 	public String ex1_3(int a, int b){
-
-		return "dummy";
-
+		return
 	}
 
 	public String ex1_4(int a){
