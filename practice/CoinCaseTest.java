@@ -1,3 +1,4 @@
+
 package practice;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -76,7 +77,5 @@ class CoinCaseTest {
 		int actual = cc.GetAmount();
 		assertEquals(expected, actual);
 	}
-
-
 
 }

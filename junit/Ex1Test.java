@@ -28,7 +28,7 @@ public class Ex1Test {
 	}
 	@Test
 	public void ex1_1_正でない整数(){
-		int expected = 1;
+		int expected = -1;
 		int actual = ex1.ex1_1(-1);
 		assertEquals(expected, actual);
 	}
