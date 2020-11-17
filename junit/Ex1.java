@@ -10,7 +10,11 @@ class Ex1{
 	 */
 	public String ex1_0(int n){
 
-		return "dummy";
+		if (n > 0) {
+			return "その値は正です";
+		}else {
+			return "その値は０か負です";
+		}
 
 	}
 
