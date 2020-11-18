@@ -61,7 +61,7 @@ class Ex1{
 	public String ex1_5(int a){
 		if (a % 10 == 0) {
 			return "その値は10の倍数です";
-		}else if (a % 10 < 0) {
+		}else if (a < 0) {
 			return "正でない整数値です";
 		}else {
 			return "その値は10の倍数ではありません";
@@ -95,12 +95,7 @@ class Ex1{
 	}
 
 	public double ex1_8(double a, double b){
-		if ( a > b ) {
-			return a;
-		}else if (a < b) {
-			return b;
-		}
-		return 0;
+		return a > b ? a : b;
 	}
 
 	public int ex1_9(int a, int b){
@@ -116,9 +111,16 @@ class Ex1{
 	}
 
 	public int ex1_11(int a, int b, int c){
-		int s = Math.min(a,  b);
-		int min= Math.min(s,  c);
-		return min;
+		if (a < b)
+			if (a < c)
+				return a;
+			else
+				return c;
+		else if (b < c)
+			return b;
+		else {
+			return c;
+		}
 	}
 
 	public int ex1_12(int a, int b, int c){
