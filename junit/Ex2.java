@@ -13,7 +13,7 @@ class Ex2{
 	}
 
 	public int [] ex2_2(int [] a){
-
+		
 		Arrays.sort(a);
 		for (int i = 0; i < a.length/2; i++) {
 			int temp = a[i];
@@ -23,9 +23,9 @@ class Ex2{
 		return a;
 	}
 
-	public ArrayList<String> ex2_3(int [] a){
+//	public ArrayList<String> ex2_3(int [] a){
+	public String[] ex2_3(int [] a){
 
-//		ArrayList<String> l = new ArrayList<>();
 		String [] l = new String[a.length];
 
 		for(int i=0; i<a.length; i++) {
@@ -54,21 +54,35 @@ class Ex2{
 	}
 
 	public int [] ex2_6(int a){
-
-//		TEST
+		
+		// Teacher's Method
+		ArrayList<Integer> x = new ArrayList<Integer>();
+		x.add(1);
+		
+		for (int i = 2; i <= a; i++) {
+			if (a % i == 0) {
+				x.add(i);
+			}
+		}
+		int [] ret = new int[x.size()];
+		
+		for (int i = 0; i < ret.length; i++) {
+			ret[i] = x.get(i);
+		}
+		return ret;
 	}
 
 	public boolean ex2_7(int a){
+//
+		boolean x = true;
 
-		boolean x = (a == 1) ? false : true;
-//				: (a == 2) ? true
-//				: (a % 2 == 0) ? false : true;
 		for (int i = 2; i < a; i++) {
-			if (a % 2 == 0) {
-				x = true;
-			} else {
+			if (a % i == 0) {
 				x = false;
 			}
+		}
+		if (a == 1) {
+			x = false;
 		}
 		return x;
 	}
