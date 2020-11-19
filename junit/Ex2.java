@@ -13,7 +13,7 @@ class Ex2{
 	}
 
 	public int [] ex2_2(int [] a){
-		
+
 		Arrays.sort(a);
 		for (int i = 0; i < a.length/2; i++) {
 			int temp = a[i];
@@ -54,18 +54,18 @@ class Ex2{
 	}
 
 	public int [] ex2_6(int a){
-		
+
 		// Teacher's Method
 		ArrayList<Integer> x = new ArrayList<Integer>();
 		x.add(1);
-		
+
 		for (int i = 2; i <= a; i++) {
 			if (a % i == 0) {
 				x.add(i);
 			}
 		}
 		int [] ret = new int[x.size()];
-		
+
 		for (int i = 0; i < ret.length; i++) {
 			ret[i] = x.get(i);
 		}

@@ -324,5 +324,4 @@ public class Ex2Test {
 		int actual = ex2.ex2_9(test);
 		assertEquals(expected, actual);
 	}
-
 }
