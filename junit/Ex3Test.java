@@ -42,6 +42,4 @@ public class Ex3Test {
 		double actual = ex3.ex3_1(test);
 		assertEquals(expected, actual, 0);
 	}
-
-
 }
