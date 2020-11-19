@@ -9,9 +9,11 @@ class Ex1{
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String ex1_0(int n){
-
-		return "dummy";
-
+		if (n > 0) {
+		return  "その値は正です";
+		} else {
+			return "その値は０か負です";
+		}
 	}
 
 	public int ex1_1(int n){
@@ -21,14 +23,20 @@ class Ex1{
 	}
 
 	public String ex1_2(int a, int b){
-
-		return "dummy";
+		if (a%b == 0) {
+		return "bはaの約数です";
+		} else {
+			return "bはaの約数ではありません";
+		}
 	}
 
 	public String ex1_3(int a, int b){
-
-		return "dummy";
-
+		if (a>b) {
+			return a +"の方が大きいです";
+		} else if (a==b) {
+			return "同じ値です";
+		} else
+			return b +"の方が大きいです";
 	}
 
 	public String ex1_4(int a){
