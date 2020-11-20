@@ -8,18 +8,12 @@ import java.util.stream.IntStream;
 class Ex4{
 
     public int [] ex4_1(){
-
-    	ArrayList<Integer> x = new ArrayList<Integer>();
-
-        for (int i = 5; i < 0; i--) {
-            x.add(i);
+    	
+        int[] z = new int[5];
+        for (int i = 0; i < 5; i++) {
+            z[i] = 5 - i;
         }
-		int [] ret = new int[x.size()];
-
-		for (int i = 0; i < ret.length; i++) {
-			ret[i] = x.get(i);
-		}
-		return ret;
+        return z;
     }
 
     public double [] ex4_2(){
@@ -149,43 +143,140 @@ class Ex4{
 		return ret;
     }
 
-    public void ex4_10(int [] a, int [] b){
+    public int[] ex4_10(int [] a, int [] b){
 
-        return;
+    	/** Method 1 (Fail)
+    	ArrayList<Integer> x = new ArrayList<Integer>();
+
+        for (int i = 0; i < b.length; i++) { x.add(b[i]); }
+        for (int i = b.length; i < a.length; i++) {
+            x.add(a[i]); 
+        }
+		int [] ret = new int[x.size()];
+
+		for (int i = 0; i < ret.length; i++) {
+			ret[i] = x.get(i);
+		}
+		System.out.println(Arrays.toString(ret));
+		return ret;
+		**/
+    	
+    	// Method 2
+		for(int i = 0, tmp = 0; i < Math.min(a.length, b.length); i++) {
+			tmp = a[i];
+			a[i] = b[i];
+			b[i] = tmp;
+		}
+		
+		return a;
     }
 
     public int [] ex4_11(int [] a){
 
-        int [] ret = new int[0];
+		int [] x = new int[a.length];
+		
+		for(int i = 0; i < a.length; i++){
+			x[i] = a[i];
+		}
 
-        return ret;
+		return x;
     }
 
     public int [] ex4_12(int [] a, int x){
 
-        int [] ret = new int[0];
+		int [] ret = new int[a.length];
+		int [] ret2  = new int[a.length];
+		int count = 0, count2 = 0;
 
-        return ret;
+		for (int i = 0; i < a.length; i++) {
+			ret[i] = (a[i] == x) ? ret2[i] = count : count2++;
+			count++;
+		}
+		int [] ret3 = new int[Math.abs(count - count2)];
+
+		for (int i = 0, j = 0; i < a.length; i++) {
+			if (ret2[i] != 0) { ret3[j] = i; j++; }
+		}
+		return (count2 == 0) ? ret2 : ret3;
     }
 
     public int [] ex4_13(int [] a, int idx){
 
-        int [] ret = new int[0];
+    	/** Method 1
+    	ArrayList<Integer> x = new ArrayList<Integer>();
 
-        return ret;
+        for (int i = 0; i < a.length; i++) {
+        	if (i != idx) { x.add(a[i]); }
+        }
+
+		int [] ret = new int[x.size()];
+
+		for (int i = 0; i < ret.length; i++) {
+			ret[i] = x.get(i);
+		}
+		return ret;
+ 		**/
+    	
+    	// Method 2
+    	int [] x = new int[a.length];
+		int count = 0;
+
+        for (int i = 0; i < a.length; i++) {
+			if (i != idx) { 
+				x[i] = a[i];
+			} else {
+				x[i] = 100;
+				count++;
+			}
+		}
+
+		int [] ret = new int[a.length - count];
+
+		for (int i = 0, j = 0; i < a.length; i++) {
+			if (x[i] != 100) {
+				ret[j] = x[i];
+				j++; 
+			}
+		}
+		return ret;
     }
 
     public int [] ex4_14(int [] a, int idx, int n){
 
-        int [] ret = new int[0];
+    	ArrayList<Integer> x = new ArrayList<Integer>();
+    	ArrayList<Integer> y = new ArrayList<Integer>();
 
-        return ret;
+        for (int i = 0; i < a.length; i++) {
+        	y.add(a[i]);
+        	if (i < idx || i >= n + idx) { x.add(a[i]); }
+        }
+
+		int [] ret = new int[x.size()];
+		for (int i = 0; i < ret.length; i++) {
+			ret[i] = x.get(i);
+		}
+
+		int [] ret2 = new int[a.length];
+		for (int i = 0; i < a.length; i++) {
+			ret2[i] = y.get(i);
+		}
+
+		return (n == idx) ? ret2 : ret;
     }
 
     public int [] ex4_15(int [] a, int idx, int x){
 
-        int [] ret = new int[0];
+		idx = (idx >= a.length) ? a.length : (idx < 0) ? 0 : idx;
 
-        return ret;
+		int [] ret = new int[a.length + 1];
+		for (int i = 0, j = 0; i < ret.length; i++, j++) {
+			if (i == idx) {
+				ret[i] = x;
+				j--;
+			} else {
+				ret[i] = a[j];
+			}
+		}
+		return ret;
     }
 }
