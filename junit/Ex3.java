@@ -4,8 +4,14 @@ class Ex3{
 
 	public double ex3_1(int [] a){
 
-		double ret = 0;
+		int ret = 0;
+		for (int i : a) {
+			ret += i;
 
-		return ret;
+		}
+		double avg = ret / (double)a.length;
+
+		return avg;
 	}
+
 }
