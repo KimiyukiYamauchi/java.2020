@@ -6,6 +6,10 @@ class Ex3{
 
 		double ret = 0;
 
-		return ret;
+		for (int i : a) {
+			ret += i;
+		}
+
+		return ret / a.length;
 	}
 }
