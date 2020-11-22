@@ -94,7 +94,6 @@ class Ex4{
 			}
 		}
 		return 0;
-	
     }
 
     public int ex4_6(int [] test, int key){
@@ -172,9 +171,83 @@ class Ex4{
 	}
 
     public void ex4_10(int [] a, int [] b){
-    	//すみません、問題は全然分からないです。
-        return;
-    }
+    	if(a.length >= b.length){
+			ArrayList<Integer> arr = new ArrayList<Integer>();
+			for(int i = 0; i < b.length; i++){
+				arr.add(b[i]);
+				
+			}
+			for(int i = 0; i < a.length; i++){
+				if(i >= b.length){
+					arr.add(0);
+
+				}
+
+			}
+			int [] ret = new int[arr.size()];
+			for (int i = 0; i < ret.length; i++) {
+				ret[i] = arr.get(i);
+			}
+
+			int tmp[] = new int[a.length];
+			int tpp[] = new int[b.length];
+			for(int i = 0; i < b.length;i++){
+				tmp[i] = a[i];
+				a[i] = ret[i];
+				b[i] = tpp[i];
+				b[i] = tmp[i];
+				
+				
+				
+				
+			}
+			for(int i = 0; i < a.length;i++){
+				
+			}
+			
+			return;
+		
+		}else {
+			ArrayList<Integer> brr = new ArrayList<Integer>();
+			for(int i = 0; i < a.length; i++){
+				brr.add(a[i]);
+				
+			}
+			for(int i = 0; i < b.length; i++){
+				if(i >= a.length){
+					brr.add(0);
+
+				}
+
+			}
+			int [] ret = new int[brr.size()];
+			for (int i = 0; i < ret.length; i++) {
+				ret[i] = brr.get(i);
+			}
+
+			int tmp[] = new int[b.length];
+			int tpp[] = new int[a.length];
+			for(int i = 0; i < a.length;i++){
+				tmp[i] = b[i];
+				b[i] = ret[i];
+				a[i] = tpp[i];
+				a[i] = tmp[i];
+				
+				
+				
+				
+			}
+			for(int i = 0; i < b.length;i++){
+				
+			}
+			return;
+		}
+
+			
+	}
+
+
+    
 
     public int [] ex4_11(int [] a){
 
