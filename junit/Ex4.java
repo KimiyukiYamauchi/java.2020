@@ -4,28 +4,66 @@ class Ex4{
 
     public int [] ex4_1(){
 
-        int [] ret = new int[1];
+        int [] ret = new int[5];
+        
+        for (int i = 0; i < ret.length; i++) {
+        	ret[i] = 5 - i;
+        }
 
         return ret;
     }
 
     public double [] ex4_2(){
-
-        double [] ret = new double[1];
-
-        return ret;
+    	
+    	double [] ret = new double[5];
+    	
+    	double val = 11.0;
+    	for (int i = 0; i < ret.length; i++) {
+    		ret[i] = val / 10;
+    		val += 11.0;
+    		}
+    	return ret;
     }
 
     public int [] ex4_3(int a, int b){
 
-        int [] ret = new int[1];
-
+        int [] ret = new int[a];
+        
+        for (int i = 0; i < a; i++) {
+        	ret[i] = b;
+        	}
+        
         return ret;
     }
 
     public int [] ex4_4(int [] a){
 
-        int [] ret = new int[1];
+        double sum = 0;
+        int min = a[0];
+        int max = a[0];
+        double avg;
+        
+        for (int i = 0; i < a.length; i++) {
+        	
+        	sum += a[i];
+        	
+        	if (a[i] < min) {
+        		min = a[i];
+        	}
+        	
+        	if (a[i] > max) {
+        		max = a[i];
+        	}
+        }
+        
+        avg = sum / a.length;
+        
+        int [] ret = new int[4];
+        
+        ret[0] = (int)Math.round(sum);
+        ret[1] = (int)Math.round(avg);
+        ret[2] = max;
+        ret[3] = min;
 
         return ret;
     }
