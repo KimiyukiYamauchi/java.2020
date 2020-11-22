@@ -137,8 +137,8 @@ class Ex4{
     		n = b.length;
     		m = a.length;
     	}else {
-    		m = a.length;
-    		n = b.length;
+    		n = a.length;
+    		m = b.length;
     	}
     	int ret;
     	for (int i = 0; i < n; i ++) {
