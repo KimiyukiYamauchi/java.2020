@@ -151,12 +151,10 @@ class Ex4{
     	if (0 > idx || idx >= a.length) {
     		return a;
     	}
-    	int count = 0;
         int [] ret = new int[a.length - 1];
-        for (int i = 0; i < a.length ; i ++) {
+        for (int i = 0, count = 0; i < a.length ; i ++) {
         	if (i != idx) {
-        		ret[count] = a[i];
-        		count ++;
+        		ret[count++] = a[i];
         	}
         }
         return ret;
@@ -173,11 +171,9 @@ class Ex4{
     		len = a.length - n;
     	}
         int [] ret = new int[len];
-        int count = 0;
-        for (int i = 0; i < a.length; i ++) {
+        for (int i = 0, count = 0; i < a.length; i ++) {
         	if (i < idx || idx + n <= i) {
-        		ret[count] = a[i];
-        		count ++;
+        		ret[count ++] = a[i];
         	}
         }
         return ret;
@@ -187,12 +183,10 @@ class Ex4{
     	if (idx < 0) {
     		idx = 0;
     	}
-    	int count = 0;
         int [] ret = new int[a.length + 1];
-        for (int i = 0; i < a.length + 1; i ++) {
+        for (int i = 0, count = 0; i < a.length + 1; i ++) {
         	if (i == idx) {
-        		ret[count] = x;
-        		count ++;
+        		ret[count ++] = x;
         	}
         	if (i < a.length) {
         	ret[count] = a[i];
