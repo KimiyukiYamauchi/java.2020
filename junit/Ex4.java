@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.ArrayList;
+
 class Ex4{
 
     public int [] ex4_1(){
@@ -68,78 +70,195 @@ class Ex4{
         return ret;
     }
 
-    public int ex4_5(int [] a, int key){
-
-        int ret = 9999;
-
-        return ret;
+    public int ex4_5(int [] a, int key) {
+    	
+    	int ret = -1;
+    	
+    	for (int i = 0; i < a.length; i++) {
+    		if (a[i] == key) {
+    			ret = i;
+    			break;
+    		}
+    	}
+    	
+    	return ret;
     }
 
     public int ex4_6(int [] a, int key){
-
-        int ret = 9999;
-
-        return ret;
+    	
+    	int ret = -1;
+    	
+    	for (int i = 0; i < a.length; i++) {
+    		if (a[i] == key) {
+    			ret = i;
+    		}
+    	}
+    	
+    	return ret;
     }
 
     public int [] ex4_7(int [] a, int idx){
 
-        int [] ret = new int[1];
+        int [] ret = new int[a.length - 1];
+        
+        int my_index = 0;
+        
+        for (int i = 0; i < a.length; i++) {
+        	if (idx != i) {
+        		ret[my_index] = a[i];
+        	} else {
+        		my_index --;
+        	}
+        	my_index ++;
+        }
 
         return ret;
     }
 
     public int [] ex4_8(int [] a, int idx, int n){
-
-        int [] ret = new int[1];
-
-        return ret;
+    	
+    	if (a.length >= idx + n) {
+    		ArrayList<Integer> nums = new ArrayList<Integer>();
+    	
+    		for (int i = 0; i < a.length; i++) {
+    			if (i < idx || i >= idx + n) {
+    				nums.add(a[i]);
+    			}
+    		}
+    	
+    		int [] ret = new int[nums.size()];
+    	
+    		for (int i = 0; i < nums.size(); i++) {
+    			ret[i] = nums.get(i);
+    		}
+    	
+    		return ret;
+    	} else {
+    		return a;
+    	}
     }
 
     public int [] ex4_9(int [] a, int idx, int x){
 
-        int [] ret = new int[1];
-
-        return ret;
+    	int [] nums = new int[a.length + 1];
+    	
+    	for (int i = 0, j = 0; i < a.length; i++) {
+    		if (i == idx) {
+    			nums[j++] = x;
+    			nums[j++] = a[i];
+    		} else {
+    			nums[j++] = a[i];
+    		}
+    	}
+    	
+    	return nums;
     }
 
-    public void ex4_10(int [] a, int [] b){
-
-        return;
+    public int[][] ex4_10(int [] a, int [] b){
+    	
+    	int temp;
+    	
+    	for (int i = 0; i < a.length; i++) {
+    		if (i < b.length) {
+    			temp = a[i];
+    			a[i] = b[i];
+    			b[i] = temp;
+    		} else {
+    			break;
+    		}
+    	}
+       
+    	return null;
     }
 
     public int [] ex4_11(int [] a){
-
-        int [] ret = new int[0];
-
-        return ret;
+    	int [] nums = a;
+    	return nums;
     }
 
     public int [] ex4_12(int [] a, int x){
 
-        int [] ret = new int[0];
+    	ArrayList<Integer> idxs = new ArrayList<Integer>();
+    	
+    	for (int i = 0; i < a.length; i++) {
+    		if (x == a[i]) {
+    			idxs.add(i);
+    		}
+    	}
+    	
+    	int [] ret = new int [idxs.size()];
+    	
+    	for (int i = 0; i < idxs.size(); i++) {
+    		ret[i] = idxs.get(i);
+    	}
 
-        return ret;
+       return ret;
     }
 
     public int [] ex4_13(int [] a, int idx){
 
-        int [] ret = new int[0];
-
-        return ret;
+    	if (idx < a.length && idx > 0) {
+    		int [] ret = new int[a.length - 1];
+        
+    	int my_index = 0;
+        
+    	for (int i = 0; i < a.length; i++) {
+    		if (idx != i) {
+    			ret[my_index] = a[i];
+    			} else {
+    				my_index --;
+    				}
+    		my_index ++;
+    		}
+    	
+    	return ret;
+    	} else {
+    		return a;
+    	}
     }
 
     public int [] ex4_14(int [] a, int idx, int n){
+    	
+    	ArrayList<Integer> nums = new ArrayList<Integer>();
 
-        int [] ret = new int[0];
-
-        return ret;
+    	for (int i = 0; i < a.length; i++) {
+    		if (i < idx || i >= idx + n) {
+    			nums.add(a[i]);
+    		}
+        }
+    	
+    	int [] ret = new int[nums.size()];
+    	
+    	for (int i = 0; i < nums.size(); i++) {
+    		ret[i] = nums.get(i);
+    	}
+    	return ret;
     }
 
     public int [] ex4_15(int [] a, int idx, int x){
 
-        int [] ret = new int[0];
-
-        return ret;
+    	int [] nums = new int[a.length + 1];
+    	
+    	if (idx < 0) {
+    		idx = 0;
+    	}
+    	if (idx >= a.length) {
+    		for (int i = 0; i < a.length; i++) {
+    			nums[i] = a[i];
+    			}
+    		nums[a.length] = x;
+    		
+    	} else {
+    		for (int i = 0, j = 0; i < a.length; i++) {
+    			if (i == idx) {
+    				nums[j++] = x;
+    				nums[j++] = a[i];
+    			} else {
+    				nums[j++] = a[i];
+    				}
+    			}
+    		}
+    	
+    	return nums;
     }
 }
