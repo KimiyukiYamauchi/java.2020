@@ -269,7 +269,8 @@ class Ex4{
 		for (int i = 0, j = 0; i < a.length; i++) {
 			if (ret2[i] != 0) { ret3[j] = i; j++; }
 		}
-		return (count2 == 0) ? ret2 : ret3; **/
+		return (count2 == 0) ? ret2 : ret3; 
+		**/
     	
     	// Method 2
     	ArrayList<Integer> search = new ArrayList<Integer>();
@@ -330,6 +331,7 @@ class Ex4{
 
     public int [] ex4_14(int [] a, int idx, int n){
 
+    	// Method 1
     	ArrayList<Integer> x = new ArrayList<Integer>();
     	ArrayList<Integer> y = new ArrayList<Integer>();
 
