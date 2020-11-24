@@ -397,6 +397,4 @@ public class Ex5Test {
 		String actual = ex5.ex5_3(x);
 		assertEquals(expected, actual);
 	}
-
-
 }
