@@ -138,10 +138,13 @@ class Ex4{
 	    for(int i=0;i<= a.length-1;i++){
 	    		hoge.add(a[i]);
 	        }
+	    //
 		for(int j= idx;j< n+idx;j++){
-	
-	 	    hoge.remove(a[idx-1]);
+			if (idx != n) {
+				hoge.remove(idx);
+			}
 	 	}
+		//
 	    int [] ret = new int[hoge.size()];
 	    for (int s = 0; s < ret.length;s++){
 	        ret[s] = hoge.get(s);
@@ -151,26 +154,53 @@ class Ex4{
 
     public int [] ex4_9(int [] a, int idx, int x){
 
-        int [] ret = new int[1];
+    	int [] ret = new int[a.length+1];
+        for(int i= 0;i < idx;i++){
+            ret[i] = a[i];
+        }
+        ret[idx] = x;
+        for(int i= idx+1;i < ret.length;i++){
+            ret[i] = a[i-1];
+        }
+	 	
+	   
+        return ret;
+
+    }
+
+    public int[] ex4_10(int [] a, int [] b){
+    	int len = a.length < b.length ? a.length : b.length;
+    	int [] ret = new int[a.length];
+        for(int i = 0, work;i<len;i++){
+        	work = a[i];
+        	a[i] = b[i];
+        	b[i] = work;
+        }
 
         return ret;
     }
 
-    public void ex4_10(int [] a, int [] b){
-
-        return;
-    }
-
     public int [] ex4_11(int [] a){
-
-        int [] ret = new int[0];
-
+    	int [] ret = new int[a.length];
+    	for(int i = 0;i < a.length;i++) {
+    		ret[i] = a[i];
+    	}
         return ret;
     }
 
     public int [] ex4_12(int [] a, int x){
 
-        int [] ret = new int[0];
+		ArrayList<Integer> hoge = new ArrayList<Integer>();
+	    for(int i=0;i < a.length;i++){
+	    	if(a[i] == x) {
+	    		hoge.add(i);
+	    	}
+	    }
+	    
+	    int [] ret = new int[hoge.size()];
+	    for (int s = 0; s < hoge.size(); s++){
+	        ret[s] = hoge.get(s);
+	    }
 
         return ret;
     }
@@ -178,21 +208,78 @@ class Ex4{
     public int [] ex4_13(int [] a, int idx){
 
         int [] ret = new int[0];
+    	ArrayList<Integer> hoge = new ArrayList<Integer>();
+	    for(int i=0;i<= a.length-1;i++){
+	    		hoge.add(a[i]);
+	    }
+	    if(idx > 0 && idx < a.length){
+	         hoge.remove(idx);
+	    }
+	    int [] yes = new int[hoge.size()];
+	    for (int s = 0; s < yes.length;s++){
+	        yes[s] = hoge.get(s);
+	    }
 
-        return ret;
+        return yes;
     }
 
     public int [] ex4_14(int [] a, int idx, int n){
 
-        int [] ret = new int[0];
+		ArrayList<Integer> hoge = new ArrayList<Integer>();
+	    for(int i=0;i<= a.length-1;i++){
+	    		hoge.add(a[i]);
+	        }
+	    //
+	    try {
+	    if(n > a.length) {
+	    	int num[] = new int[idx];
+	    	n = n -1;
+	    	for(int j= idx;j< n+idx;j++){
+				if (idx != n) {
+					hoge.remove(idx);
+				}
+		 	}
+	    }else{
+	    	int num[] = new int[idx];
+	    	for(int j= idx;j< n+idx;j++){
+				if (idx != n) {
+					hoge.remove(idx);
+				}
+		 	}
+	    }
+	    }catch (Exception e) {
+	    	 
+	    }
+		//
+	    int [] ret = new int[hoge.size()];
+	    for (int s = 0; s < ret.length;s++){
+	        ret[s] = hoge.get(s);
+	    }
 
         return ret;
     }
 
     public int [] ex4_15(int [] a, int idx, int x){
 
-        int [] ret = new int[0];
-
+    	int [] ret = new int[a.length+1];
+    	if(idx < 0) {
+    		idx = idx +1;
+    		for(int i= 0;i < idx;i++){
+                ret[i] = a[i];
+            }
+            ret[idx] = x;
+            for(int i= idx+1;i < ret.length;i++){
+                ret[i] = a[i-1];
+            }
+    	}else {
+        for(int i= 0;i < idx;i++){
+            ret[i] = a[i];
+        }
+        ret[idx] = x;
+        for(int i= idx+1;i < ret.length;i++){
+            ret[i] = a[i-1];
+        }
+    	}
         return ret;
     }
 }
