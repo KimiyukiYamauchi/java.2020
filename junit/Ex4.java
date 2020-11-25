@@ -1,7 +1,6 @@
 package junit;
 
-class Ex4{
-
+public class Ex4 {
     public int [] ex4_1(){
 
         int [] ret = new int[1];
