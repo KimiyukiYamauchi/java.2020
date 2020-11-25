@@ -4,21 +4,33 @@ class Ex4{
 
     public int [] ex4_1(){
 
-        int [] ret = new int[1];
+        int ret[] = new int[5];
+
+        ret[0] = 5;
+        ret[1] = 4;
+        ret[2] = 3;
+        ret[3] = 2;
+        ret[4] = 1;
 
         return ret;
     }
 
     public double [] ex4_2(){
 
-        double [] ret = new double[1];
+        double [] ret = new double[5];
+
+        ret[0] = 1.1;
+        ret[1] = 2.2;
+        ret[2] = 3.3;
+        ret[3] = 4.4;
+        ret[4] = 5.5;
 
         return ret;
     }
 
     public int [] ex4_3(int a, int b){
 
-        int [] ret = new int[1];
+    	int [] ret = new int[a];
 
         return ret;
     }
