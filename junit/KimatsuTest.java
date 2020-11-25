@@ -304,7 +304,7 @@ class KimatsuTest {
 	}
 	@Test
 	@DisplayName("mon08_4")
-	public void emon08_4(){
+	public void mon08_4(){
 		double expected = (0+1+-2)/3.0;
 		int [] test = {0, 1, -2};
 		double actual = ex.mon08(test);
