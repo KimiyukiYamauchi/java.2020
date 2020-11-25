@@ -200,25 +200,42 @@ class Ex4{
 
     public int [] ex4_14(int [] a, int idx, int n){
     	
-    	int cou = 0;
-    	if (idx == n) {
-    		return a;
+	if (a.length < n) {
+		int[] ret = new int[0];
+		return ret;
+	} else if(a.length <= idx || idx < 0) {
+		return a;
+	}
+    int[] ret = new int [a.length - n];	
+    for (int i = 0, j = 0; i < a.length; i ++) {
+    	if (!(i >= idx && i <= n)) {
+    		ret[j++] = a[i];
     	}
-        int [] ret = new int[a.length - n];
-        for (int i = 0; i < a.length; i ++) {
-        	if (!(i >= idx && i < n + idx)) {
-        		ret[cou] = a[i];
-        		cou += 1;
-        	}
-        }
+    }
 
         return ret;
     }
 
     public int [] ex4_15(int [] a, int idx, int x){
+    	
+    	int [] ret = new int[a.length + 1];
+    	int c = 0;
+    	
+    	if (idx < 0) {
+    		ret[0] = x;
+    	}else {
+        	for (int i = 0; i < a.length + 1; i ++) {
+        		if (i == idx) {
+        			ret[i] = x;
+       
+        		}else {
+        			ret[i] = a[c];
+        			c += 1;
+        		}
+        	}
+    	}
 
-        int [] ret = new int[0];
-
-        return ret;
+       
+    		return ret;
     }
 }
