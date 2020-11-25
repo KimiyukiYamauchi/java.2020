@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,8 +11,13 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
+		if(n > 0) {
+			return "その値は正です";
+		}else {
+			return "その値は０か負です";
+		}
 
-		return "";
+
 
 	}
 
@@ -25,7 +32,18 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if(a < 0 || a > 100) {
+			return "範囲(0～100)外の値です";
+		}else if(a <= 59) {
+			return "不可";
+		}else if(a <= 69) {
+			return "可";
+		}else if(a <= 79) {
+			return "良";
+		}else {
+			return "優";
+		}
+
 	}
 
 	/**
@@ -37,7 +55,10 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		int[] nums = {a, b, c};
+		Arrays.sort(nums);
+
+		return nums[1];
 	}
 
 	/**
@@ -49,6 +70,9 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
+		Arrays.sort(a);
+
+
 
 		return a;
 
@@ -61,8 +85,9 @@ public class Kimatsu {
 	 * 引数の整数値の桁数を返す
 	 */
 	public int mon05(int a){
+		String str = String.valueOf(a);
 
-		return -1;
+		return str.length();
 
 	}
 
@@ -75,8 +100,18 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
+		if(a <= 1) {
+			return false;
+		}
+		int x = 0;
 
-		return true;
+		for(int i = 2, j = 0; i < a; i++) {
+			if(a % i == 0) {
+				x++;
+			}
+		}
+
+		return x == 0 ? true: false;
 
 	}
 
@@ -87,8 +122,13 @@ public class Kimatsu {
 	 * 配列の要素をすべて加算した結果を返す
 	 */
 	public int mon07(int [] a){
+		int sum = 0;
 
-		return -1;
+		for(int i: a) {
+			sum += i;
+		}
+
+		return sum;
 
 	}
 
@@ -101,8 +141,13 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
+		double sum = 0;
 
-		return 0;
+		for(int i: a) {
+			sum += i;
+		}
+
+		return sum / a.length;
 	}
 
 	/**
@@ -112,7 +157,8 @@ public class Kimatsu {
     */
    public double [] mon09(){
 
-       double [] ret = null;
+
+       double [] ret = {1.1, 2.2, 3.3, 4.4, 5.5};
 
        return ret;
    }
@@ -127,9 +173,15 @@ public class Kimatsu {
    *
    */
   public int mon10(int [] a, int key){
+	  for(int i = 0; i < a.length; i++){
+		  if(a[i] == key) {
+			  return i;
+		  }
+	  }
+	  return -1;
 
 
-      return 100;
+
   }
 
 }
