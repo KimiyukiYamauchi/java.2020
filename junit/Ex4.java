@@ -1,6 +1,7 @@
 package junit;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Ex4{
@@ -269,19 +270,19 @@ class Ex4{
 		for (int i = 0, j = 0; i < a.length; i++) {
 			if (ret2[i] != 0) { ret3[j] = i; j++; }
 		}
-		return (count2 == 0) ? ret2 : ret3; 
+		return (count2 == 0) ? ret2 : ret3;
 		**/
-    	
+
     	// Method 2
     	ArrayList<Integer> search = new ArrayList<Integer>();
-    	
+
     	for (int i = 0; i < a.length; i++) {
     		if (a[i] == x) {
     			search.add(i);
     		}
     	}
     	int [] ret = new int[search.size()];
-    	
+
     	for (int i = 0; i < search.size(); i++) {
     		ret[i] = search.get(i);
     	}
@@ -332,6 +333,7 @@ class Ex4{
     public int [] ex4_14(int [] a, int idx, int n){
 
     	// Method 1
+    	/**
     	ArrayList<Integer> x = new ArrayList<Integer>();
     	ArrayList<Integer> y = new ArrayList<Integer>();
 
@@ -351,6 +353,25 @@ class Ex4{
 		}
 
 		return (n == idx) ? ret2 : ret;
+		**/
+
+    	// Method 2
+
+		int [] ret = new int[a.length];
+		int [] ret2 = new int[a.length];
+		int [] ret3 = new int[0];
+
+    	for (int i = 0, j = 0; i < a.length; i++) {
+			ret[i] = a[i];
+			if (i < idx || i >= idx + n) {
+				ret2[j] = a[i];
+				j++;
+			}
+		}
+
+		return (n >= a.length) ? ret3 : (n < 0) ? ret :
+				(n + idx < a.length) ?
+				Arrays.copyOfRange(ret2, 0, a.length - n) : ret;
     }
 
     public int [] ex4_15(int [] a, int idx, int x){
