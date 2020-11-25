@@ -1,7 +1,6 @@
 package junit;
 
-class Ex2{
-
+class Ex2 {
 	public int [] ex2_1(int [] a){
 
 		return a;
@@ -64,4 +63,3 @@ class Ex2{
 
 	}
 }
-
