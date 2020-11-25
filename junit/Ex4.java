@@ -174,26 +174,10 @@ class Ex4{
 
     public int [] ex4_14(int [] a, int idx, int n){
 
-    	if ( n <= 0) {
-    		return a;
-    	}
-    	int len;
-    	if (a.length < idx + n) {
-    		len = idx;
-    	} else {
-    		len = a.length - n;
-    	}
-        int [] ret = new int[len];
-        int count = 0;
-        for (int i = 0; i < a.length; i ++) {
-        	if (i < idx || idx + n <= i) {
-        		ret[count] = a[i];
-        		count ++;
-        	}
-        }
-        return ret;
-    }
+    	 int [] ret = new int[0];
 
+         return ret;
+     }
 
     public int [] ex4_15(int [] a, int idx, int x){
     	if(idx < 0) {
