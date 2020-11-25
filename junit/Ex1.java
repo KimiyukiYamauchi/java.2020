@@ -1,6 +1,6 @@
 package junit;
 
-class Ex1{
+class Ex1 {
 	/**
 	 *
 	 * @param n
@@ -10,7 +10,7 @@ class Ex1{
 	 */
 	public String ex1_0(int n){
 
-		return "dummy";
+		return "0";
 
 	}
 
@@ -34,7 +34,7 @@ class Ex1{
 	public String ex1_4(int a){
 
 		return "dummy";
-
+		
 	}
 
 	public String ex1_5(int a){
@@ -74,4 +74,3 @@ class Ex1{
 		return "dummy";
 	}
 }
-
