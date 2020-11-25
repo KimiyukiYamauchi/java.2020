@@ -1,6 +1,6 @@
 package junit;
 
-class Ex3{
+class Ex3 {
 
 	public double ex3_1(int [] a){
 
