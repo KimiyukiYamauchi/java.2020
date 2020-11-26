@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,8 +11,11 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
-
-		return "";
+		if (n > 0) {
+			return "その値は正です";
+		}else {
+			return "その値は０か負です";
+		}
 
 	}
 
@@ -25,7 +30,17 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if (a < 0 || 100 < a) {
+			return "範囲(0～100)外の値です";
+		}else if (a < 60) {
+			return "不可";
+		}else if (a < 70) {
+			return "可";
+		}else if (a < 80) {
+			return "良";
+		}else {
+			return "優";
+		}
 	}
 
 	/**
@@ -37,7 +52,7 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		return (a + b + c) / 3;
 	}
 
 	/**
@@ -49,6 +64,8 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
+
+		Arrays.sort(a);
 
 		return a;
 
@@ -62,7 +79,9 @@ public class Kimatsu {
 	 */
 	public int mon05(int a){
 
-		return -1;
+		String b = a + "";
+
+		return b.length();
 
 	}
 
@@ -76,7 +95,19 @@ public class Kimatsu {
 	 */
 	public boolean mon06(int a){
 
-		return true;
+		int cnt = 0;
+
+		if (a <= 1) {
+			return false;
+		}
+
+		for (int i = 2; i < a / 2; i++) {
+			if (a % i == 0) {
+				cnt += 1;
+			}
+		}
+
+		return cnt == 0 ? true : false;
 
 	}
 
@@ -88,7 +119,13 @@ public class Kimatsu {
 	 */
 	public int mon07(int [] a){
 
-		return -1;
+		int sum = 0;
+
+		for (int i : a) {
+			sum += i;
+		}
+
+		return sum;
 
 	}
 
@@ -102,7 +139,15 @@ public class Kimatsu {
 	 */
 	public double mon08(int [] a){
 
-		return 0;
+		double sum = 0;
+
+		for (int i : a) {
+			sum += i;
+		}
+
+		double avg = sum / a.length;
+
+		return avg;
 	}
 
 	/**
@@ -112,7 +157,7 @@ public class Kimatsu {
     */
    public double [] mon09(){
 
-       double [] ret = null;
+       double [] ret = {1.1, 2.2, 3.3, 4.4, 5.5};
 
        return ret;
    }
@@ -128,8 +173,13 @@ public class Kimatsu {
    */
   public int mon10(int [] a, int key){
 
+	  for (int i = 0; i < a.length; i++) {
+		  if (a[i] == key) {
+			  return i;
+		  }
+	  }
 
-      return 100;
+	  return -1;
   }
 
 }
