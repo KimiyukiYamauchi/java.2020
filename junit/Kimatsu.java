@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,8 +11,11 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
-
-		return "";
+		if (n > 0) {
+			return "その値は正です";
+		}else {
+			return "その値は０か負です";
+		}
 
 	}
 
@@ -25,7 +30,16 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if(a < 0 || a > 100)
+			return "範囲(0～100)外の値です";
+		else if(a <= 59)
+			return "不可";
+		else if(a <= 69)
+			return "可";
+		else if(a <= 79)
+			return "良";
+		else
+			return "優";
 	}
 
 	/**
@@ -37,7 +51,26 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		if (a < b) {
+			if (a < c) {
+				if (b < c)
+					return b;
+				else
+					return c;
+			} else {
+				if (a < b)
+					return a;
+				else
+					return b;
+			}
+		}else if (b < c) {
+			if (c < a)
+				return c;
+			else {
+				return a;
+			}
+		}else
+			return b;
 	}
 
 	/**
@@ -49,7 +82,7 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
-
+		Arrays.sort(a);
 		return a;
 
 	}
@@ -60,10 +93,8 @@ public class Kimatsu {
 	 * @return
 	 * 引数の整数値の桁数を返す
 	 */
-	public int mon05(int a){
-
-		return -1;
-
+	public int mon05(int a) {
+		return String.valueOf(a).length();
 	}
 
 	/**
@@ -75,9 +106,15 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
-
-		return true;
-
+		int cnt = 0;
+		if(a <= 1)
+			return false;
+		for(int i = 2; i < a/2; i++)
+			if (a % i == 0)
+				cnt++;
+		
+		
+		return cnt ==0 ? true : false;
 	}
 
 	/**
@@ -87,8 +124,11 @@ public class Kimatsu {
 	 * 配列の要素をすべて加算した結果を返す
 	 */
 	public int mon07(int [] a){
-
-		return -1;
+		int sum = 0;
+		for (int i = 0; i < a.length; i++)
+			sum += a[i];
+		
+		return sum;
 
 	}
 
@@ -101,8 +141,12 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
+		double s = 0;
+		for(int i = 0; i < a.length; i++) {
+			s += a[i];
+		}
 
-		return 0;
+		return s / a.length;
 	}
 
 	/**
