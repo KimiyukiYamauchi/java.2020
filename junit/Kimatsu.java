@@ -17,7 +17,6 @@ public class Kimatsu {
 	public String mon01(int n){
 
 		return (n > 0) ? "その値は正です" : "その値は０か負です";
-
 	}
 
 	/**
@@ -79,7 +78,6 @@ public class Kimatsu {
 			x++; a /= 10;
 		}
 		return x;
-
 	}
 
 	/**
@@ -103,7 +101,6 @@ public class Kimatsu {
 			x = false;
 		}
 		return x;
-
 	}
 
 	/**
@@ -137,15 +134,15 @@ public class Kimatsu {
     * @return
     * 配列 {1.1, 2.2, 3.3, 4.4, 5.5}を返す関数
     */
-   public double [] mon09(){
+    public double [] mon09(){
 
-	    List<Double> x = new ArrayList<Double>(5);
-
-	    for (int i = 1; i <= 5; i++) {
-	        x.add((double)(i * 1.1) * 10 / 10.0);
-	    }
+		List<Double> x = new ArrayList<Double>(5);
+		
+		for (int i = 1; i <= 5; i++) {
+		    x.add((double)(i * 1.1) * 10 / 10.0);
+		}
 		double [] ret = new double[x.size()];
-
+		
 		for (int i = 0; i < ret.length; i++) {
 			ret[i] = x.get(i);
 		}
@@ -161,10 +158,10 @@ public class Kimatsu {
    * 見つからなかったら-1を返す
    *
    */
-  public int mon10(int [] a, int key){
+    public int mon10(int [] a, int key){
 
 		int len = a.length;
-
+		
 		return IntStream.range(0, len)
 		    .filter(i -> key == a[i])
 		    .findFirst()
