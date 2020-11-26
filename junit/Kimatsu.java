@@ -108,11 +108,20 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
+		int count = 0;
 
+		if (a <= 1) {
+			return false;
+		}
+
+		for (int i = 2; i < a/2; i++) {
+			if (a % i ==  0) {
+				count++;
+			}
+		}
 		return count == 0 ? true : false;
 
-	}
-	/**
+	}/**
 	 *
 	 * @param a - 整数値の配列
 	 * @return
@@ -137,8 +146,16 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
-		return ;
-	}
+		double sum = 0;
+
+		for ( int i : a) {
+			sum += i;
+		}
+		double avg  = sum / a.length;
+		int ret = (int)Math.round(avg);
+
+			return ret;
+		}
 
 	/**
     *
