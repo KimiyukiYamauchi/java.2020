@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,9 +11,11 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
-
-		return "";
-
+		if (n > 0) {
+			return "その値は正です";
+		} else {
+			return "その値は０か負です";
+		}
 	}
 
 	/**
@@ -25,7 +29,19 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if (a < 0 || a > 100) {
+			return "範囲(0～100)外の値です";
+		} else {
+			if (a >= 80) {
+				return "優";
+			} else if (a >= 70) {
+				return "良";
+			} else if (a >= 60) {
+				return "可";
+			} else {
+				return "不可";
+			}
+		}
 	}
 
 	/**
@@ -37,9 +53,26 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		if (a <= b && a <= c) {
+			if (b <= c) {
+				return b;
+			} else {
+				return c;
+			}
+		} else if (b <= a && b <= c) {
+			if (a <= c) {
+				return a;
+			} else {
+				return c;
+			}
+		} else {
+			if (a <= b) {
+				return a;
+			} else {
+				return b;
+			}
+		}
 	}
-
 	/**
 	 *
 	 * @param a - 整数型の配列
@@ -49,9 +82,18 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
-
+		Integer [] sort_a = new Integer [a.length];
+		
+		for (int i = 0; i < a.length; i++) {
+			sort_a[i] = a[i];
+		}
+		
+		Arrays.sort(sort_a);
+		
+		for (int i = 0; i < a.length; i++) {
+			a[i] = sort_a[i];
+		}
 		return a;
-
 	}
 
 	/**
@@ -61,9 +103,15 @@ public class Kimatsu {
 	 * 引数の整数値の桁数を返す
 	 */
 	public int mon05(int a){
-
-		return -1;
-
+		int n = a;
+		int count = 1;
+		
+		while (n / 10 > 0) {
+			n /= 10;
+			count++;
+		}
+		
+		return count;
 	}
 
 	/**
@@ -75,9 +123,19 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
-
-		return true;
-
+		boolean ret = true;
+		
+		if (a == 1 || a != 2 && a % 2 == 0) {
+			return false;
+		}
+		
+		for (int i = 3; i <= a / 2; i += 2) {
+			if (a % i == 0) {
+				ret = false;
+			}
+		}
+		
+		return ret;
 	}
 
 	/**
@@ -87,9 +145,13 @@ public class Kimatsu {
 	 * 配列の要素をすべて加算した結果を返す
 	 */
 	public int mon07(int [] a){
-
-		return -1;
-
+		int sum = 0;
+		
+		for (int i = 0; i < a.length; i++) {
+			sum += a[i];
+		}
+		
+		return sum;
 	}
 
 	/**
@@ -101,8 +163,16 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
-
-		return 0;
+		double sum = 0;
+		double avg;
+		
+		for (int i = 0; i < a.length; i++) {
+			sum += a[i];
+		}
+		
+		avg = sum / a.length;
+		
+		return avg;
 	}
 
 	/**
@@ -111,10 +181,15 @@ public class Kimatsu {
     * 配列 {1.1, 2.2, 3.3, 4.4, 5.5}を返す関数
     */
    public double [] mon09(){
-
-       double [] ret = null;
-
-       return ret;
+	   double [] ret = new double[5];
+	   double dec = 11;
+	   
+	   for (int i = 0; i < ret.length; i++) {
+		   ret[i] = dec / 10;
+		   dec += 11;
+	   }
+	   
+	   return ret;
    }
 
    /**
@@ -127,9 +202,16 @@ public class Kimatsu {
    *
    */
   public int mon10(int [] a, int key){
-
-
-      return 100;
+	  int ret = -1;
+	  
+	  for (int i = 0; i < a.length; i++) {
+		  if (a[i] == key) {
+			  ret = i;
+			  break;
+		  }
+	  }
+	  
+	  return ret;
   }
 
 }
