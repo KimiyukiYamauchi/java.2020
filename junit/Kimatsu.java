@@ -10,7 +10,12 @@ public class Kimatsu {
 	 */
 	public String mon01(int n){
 
-		return "";
+		if (n > 0) {
+			return "その値は正です";
+		}
+		else {
+			return "その値は0か負です";
+		}
 
 	}
 
@@ -25,7 +30,17 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if (a < 0 | a > 100) {
+			return "範囲(0~100)外の値です";
+		}else if (a < 60) {
+			return "不可";
+		}else if (a < 70) {
+			return "可";
+		}else if (a < 80) {
+			return "良";
+		}else {
+			return "優";
+		}
 	}
 
 	/**
@@ -37,7 +52,13 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		if (a <= b && a <= c) {
+			return a;
+		}else if (b <= a && b <= c) {
+			return b;
+		}else {
+			return c;
+		}
 	}
 
 	/**
