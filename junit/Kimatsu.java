@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,12 +11,10 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
-
 		if (n > 0) {
 			return "その値は正です";
-		}
-		else {
-			return "その値は0か負です";
+		}else {
+			return "その値は０か負です";
 		}
 
 	}
@@ -52,13 +52,7 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		if (a <= b && a <= c) {
-			return a;
-		}else if (b <= a && b <= c) {
-			return b;
-		}else {
-			return c;
-		}
+		return 100;
 	}
 
 	/**
@@ -70,7 +64,7 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
-
+		Arrays.sort(a);
 		return a;
 
 	}
