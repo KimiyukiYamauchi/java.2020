@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -9,8 +11,10 @@ public class Kimatsu {
 	 * 	n <= 0 => "その値は０か負です"
 	 */
 	public String mon01(int n){
-
-		return "";
+		if (n > 0)
+			return "その値は正です";
+		else
+			return "その値は０か負です";
 
 	}
 
@@ -25,7 +29,16 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		if (a < 0 || a > 100)
+			return "範囲(0～100)外の値です";
+		else if (a >= 80)
+			return "優";
+		else if (a >= 70)
+			return "良";
+		else if (a >= 60)
+			return "可";
+		else
+			return "不可";
 	}
 
 	/**
@@ -37,7 +50,23 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		if (a == b)
+			return a;
+		else if (a < b)
+			if (b < c)
+				return b;
+			else if (a > c)
+				return a;
+			else
+				return c;
+		else if (b < a)
+			if (a < c)
+				return a;
+			else if (b > c)
+				return b;
+			else
+				return c;
+
 	}
 
 	/**
@@ -49,9 +78,8 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
-
+		Arrays.sort(a);
 		return a;
-
 	}
 
 	/**
@@ -61,11 +89,9 @@ public class Kimatsu {
 	 * 引数の整数値の桁数を返す
 	 */
 	public int mon05(int a){
-
-		return -1;
-
+		String ket = a + "";
+		return ket. length();
 	}
-
 	/**
 	 *
 	 * @param a - 整数値
@@ -75,9 +101,16 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
-
-		return true;
-
+		int soso = 0;
+		if (a <= 1) {
+			return false;
+		}
+		for (int i = 2; i < a/2; i++) {
+			if (a % i == 0) {
+				soso++;
+			}
+		}
+		return soso == 0 ? true : false;
 	}
 
 	/**
@@ -87,9 +120,12 @@ public class Kimatsu {
 	 * 配列の要素をすべて加算した結果を返す
 	 */
 	public int mon07(int [] a){
+		int tasu = 0;
+		for ( int i : a) {
+			tasu += i;
+		}
 
-		return -1;
-
+		return tasu;
 	}
 
 	/**
@@ -101,8 +137,12 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
+		double sum = 0;
+		for (int i : a) {
+			sum += i;
+		}
 
-		return 0;
+		return sum/a.length;
 	}
 
 	/**
@@ -111,8 +151,7 @@ public class Kimatsu {
     * 配列 {1.1, 2.2, 3.3, 4.4, 5.5}を返す関数
     */
    public double [] mon09(){
-
-       double [] ret = null;
+	   double [] ret = {1.1, 2.2, 3.3, 4.4, 5.5};
 
        return ret;
    }
@@ -127,9 +166,13 @@ public class Kimatsu {
    *
    */
   public int mon10(int [] a, int key){
-
-
-      return 100;
+	  int i = 0;
+      for (; i  < a.length; i++) {
+      	if (a[i] == key) {
+      		break;
+      	}
+      }
+      return i < a.length ? i : -1;
   }
 
 }
