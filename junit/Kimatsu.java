@@ -127,7 +127,7 @@ public class Kimatsu {
     */
    public double [] mon09(){
 
-       double [] ret = null;
+       double [] ret = {1.1, 2.2, 3.3, 4.4, 5.5};
 
        return ret;
    }
