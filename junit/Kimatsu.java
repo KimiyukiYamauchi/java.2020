@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 public class Kimatsu {
 	/**
 	 *
@@ -10,7 +12,7 @@ public class Kimatsu {
 	 */
 	public String mon01(int n){
 
-		return "";
+		return (n > 0) ? "その値は正です" : "その値は０か負です";
 
 	}
 
@@ -25,7 +27,10 @@ public class Kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		return "";
+		return (0 <= a && a <= 59) ? "不可" :
+			(60 <= a && a <= 69) ? "可" :
+			(70 <= a && a <= 79) ? "良" :
+			(80 <= a && a <= 100) ? "優" : "範囲(0～100)外の値です";
 	}
 
 	/**
@@ -37,7 +42,7 @@ public class Kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-		return 100;
+		return (a + b + c) / 3;
 	}
 
 	/**
@@ -49,7 +54,9 @@ public class Kimatsu {
 	 *
 	 */
 	public int [] mon04(int [] a){
-
+		
+		Arrays.sort(a);
+		
 		return a;
 
 	}
@@ -61,8 +68,9 @@ public class Kimatsu {
 	 * 引数の整数値の桁数を返す
 	 */
 	public int mon05(int a){
-
-		return -1;
+		
+		String b = a + "";
+		return b.length();
 
 	}
 
@@ -75,8 +83,19 @@ public class Kimatsu {
 	 * 素数でない -> false
 	 */
 	public boolean mon06(int a){
-
-		return true;
+		
+		int cnt = 0;
+		
+		if(a <= 1) {
+			return false;
+		}
+		
+		for (int i = 2; i < a / 2; i++) {
+			if (a % i == 0) {
+				cnt += 1;
+			}
+		}
+		return cnt == 0 ? true : false;
 
 	}
 
@@ -87,8 +106,13 @@ public class Kimatsu {
 	 * 配列の要素をすべて加算した結果を返す
 	 */
 	public int mon07(int [] a){
-
-		return -1;
+		
+		int sum = 0;
+		
+		for (int i : a) {
+			sum += i;
+		}
+		return sum;
 
 	}
 
@@ -101,35 +125,46 @@ public class Kimatsu {
 	 *
 	 */
 	public double mon08(int [] a){
-
-		return 0;
+		
+		double sum = 0;
+		
+		for (int i : a) {
+			sum += i;
+		}
+		
+		double avg = sum / a.length;
+		
+		return avg;
 	}
 
 	/**
-    *
-    * @return
-    * 配列 {1.1, 2.2, 3.3, 4.4, 5.5}を返す関数
-    */
-   public double [] mon09(){
-
-       double [] ret = null;
-
-       return ret;
-   }
-
-   /**
    *
-   * @param a - 整数型の配列
-   * @param key - 配列の要素から検索する値
    * @return
-   * 整数型の配列aから値がkeyの要素の位置を返す
-   * 見つからなかったら-1を返す
-   *
+   * 配列 {1.1, 2.2, 3.3, 4.4, 5.5}を返す関数
    */
-  public int mon10(int [] a, int key){
+  public double [] mon09(){
 
+      double [] ret = {1.1, 2.2, 3.3, 4.4, 5.5};
 
-      return 100;
+      return ret;
   }
+
+  /**
+  *
+  * @param a - 整数型の配列
+  * @param key - 配列の要素から検索する値
+  * @return
+  * 整数型の配列aから値がkeyの要素の位置を返す
+  * 見つからなかったら-1を返す
+  *
+  */
+ public int mon10(int [] a, int key){
+	 for(int i = 0; i < a.length; i++) {
+		 if(a[i] == key) {
+			 return i;
+		 }
+	 }
+     return -1;
+ }
 
 }
