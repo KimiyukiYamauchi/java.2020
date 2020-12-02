@@ -1,7 +1,7 @@
 package junit;
 import java.util.Arrays;
 
-public class kimatsu {
+public class Kimatsu {
 
 	/**
 	 *
@@ -30,18 +30,18 @@ public class kimatsu {
 	 * 80 <= a <= 100 => 優
 	 */
 	public String mon02(int a){
-		if(a < 0 || a > 100) {
+		if(a<0 || a>100) {
 			return "範囲(0～100)外の値です";
-		}else if(0 <= a <= 59){
+		}else if(0 <= a && 59 >= a) {
 			return "不可";
-		}else if(60 <= a <= 69){
+		}else if (60 <= a && 69 >= a) {
 			return "可";
-		}else if(70 <= a <= 79) {
+		}else if (70 <= a && 79 >= a) {
 			return "良";
 		}else{
 			return "優";
 		}
-		return "";
+
 	}
 
 	/**
@@ -53,18 +53,7 @@ public class kimatsu {
 	 * 3つの引数の値の大きさが真ん中のものを返す
 	 */
 	public int mon03(int a, int b, int c){
-
-		if(a > b > c) {
-			return b;
-		}else if(c > b > a){
-			return b;
-		}else if(b > c > a) {
-			return c;
-		}else if(a > c > b) {
-			return c;
-		}else {
-			return a;
-		}
+		return (a + b + c) / 3;
 	}
 
 
@@ -91,7 +80,7 @@ public class kimatsu {
 	public int mon05(int a){
 
 		String ret = a + "";
-		return ret.length;
+		return ret.length();
 
 	}
 
@@ -125,10 +114,10 @@ public class kimatsu {
 	 */
 	public int mon07(int [] a){
 		int sum = 0;
-		for(int i:a);
-			sum += 1;
+		for(int i: a) {
+			sum += i;
+		}
 			return sum;
-
 	}
 
 	/**
